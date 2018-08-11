@@ -13,24 +13,48 @@ jQuery.fn.romanNumbers = function (options) {
             roman: 'm'
         },
         {
+            numeric: 900,
+            roman: 'cm'
+        },
+        {
             numeric: 500,
             roman: 'd'
+        },
+        {
+            numeric: 400,
+            roman: 'cd'
         },
         {
             numeric: 100,
             roman: 'c'
         },
         {
+            numeric: 90,
+            roman: 'xc'
+        },
+        {
             numeric: 50,
             roman: 'l'
+        },
+        {
+            numeric: 40,
+            roman: 'xl'
         },
         {
             numeric: 10,
             roman: 'x'
         },
         {
+            numeric: 9,
+            roman: 'ix'
+        },
+        {
             numeric: 5,
             roman: 'v'
+        },
+        {
+            numeric: 4,
+            roman: 'iv'
         },
         {
             numeric: 1,
