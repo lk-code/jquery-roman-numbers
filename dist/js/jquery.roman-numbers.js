@@ -75,10 +75,7 @@ jQuery.fn.romanNumbers = function (options) {
             targetField.val(romanNumber);
         },
 
-        getRomanNumberFromNumeric(number, romanIndex, romanNumber) {
-            if(romanIndex >= romanNumbers.length) {
-                return romanNumber;
-            }
+        getRomanNumberFromNumeric: function(number, romanIndex, romanNumber) {
 
             var romanPair = romanNumbers[romanIndex];
 
