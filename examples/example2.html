@@ -47,9 +47,9 @@
         <div class="col-md-5 p-lg-5 mx-auto my-5">
             <h3>roman numbers converter</h3>
             <div class="roman-numbers text-center block">
-                <h4>from numeric</h4>
-                <input type="number" class="text-center form-control numeric-value">
-                <h4>to roman</h4>
+                <h4>from roman</h4>
+                <input type="text" class="text-center form-control numeric-value">
+                <h4>to numeric</h4>
                 <input type="text" readonly="readonly" class="text-center form-control roman-value">
             </div>
             <br />
@@ -77,7 +77,7 @@
                 sourceFieldSelector: '.numeric-value',
                 targetFieldSelector: '.roman-value'
             },
-            direction: 'numeric2roman'
+            direction: 'roman2numeric'
         };
 
         $(".roman-numbers").romanNumbers(options);

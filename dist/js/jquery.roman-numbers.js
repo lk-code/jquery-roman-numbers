@@ -4,7 +4,8 @@ jQuery.fn.romanNumbers = function (options) {
         selectors: {
             sourceFieldSelector: '',
             targetFieldSelector: ''
-        }
+        },
+        direction: 'numeric2roman'
     };
 
     var romanNumbers = [
@@ -94,20 +95,26 @@ jQuery.fn.romanNumbers = function (options) {
             var me = this;
             var sourceNumber = $(element).children(settings.selectors.sourceFieldSelector).val();
             var targetField = $(element).children(settings.selectors.targetFieldSelector);
-            var romanNumber = methods.getRomanNumberFromNumeric(sourceNumber, 0, "");
 
-            targetField.val(romanNumber);
+            if (me.settings.direction.toLowerCase() == 'numeric2roman') {
+                var romanNumber = methods.getRomanNumberFromNumeric(sourceNumber, 0, "");
+
+                targetField.val(romanNumber);
+            } else {
+                var numericNumber = methods.getNumericNumberFromRoman(sourceNumber, 0, "");
+
+                targetField.val(numericNumber);
+            }
         },
 
-        getRomanNumberFromNumeric: function(number, romanIndex, romanNumber) {
-
+        getRomanNumberFromNumeric: function (number, romanIndex, romanNumber) {
             var romanPair = romanNumbers[romanIndex];
 
-            if(number >= romanPair.numeric) {
+            if (number >= romanPair.numeric) {
                 romanNumber = romanNumber + romanPair.roman;
                 number -= romanPair.numeric;
 
-                if(number > 0) {
+                if (number > 0) {
                     return methods.getRomanNumberFromNumeric(number, romanIndex, romanNumber);
                 }
             } else {
@@ -115,7 +122,24 @@ jQuery.fn.romanNumbers = function (options) {
             }
 
             return romanNumber;
-        }
+        },
+
+        getNumericNumberFromRoman: function (number, romanIndex, romanNumber) {
+            var romanPair = romanNumbers[romanIndex];
+
+            if (number >= romanPair.numeric) {
+                romanNumber = romanNumber + romanPair.roman;
+                number -= romanPair.numeric;
+
+                if (number > 0) {
+                    return methods.getRomanNumberFromNumeric(number, romanIndex, romanNumber);
+                }
+            } else {
+                return methods.getRomanNumberFromNumeric(number, (romanIndex + 1), romanNumber);
+            }
+
+            return romanNumber;
+        },
     };
 
     return this.each(function () {
