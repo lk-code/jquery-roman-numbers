@@ -27,6 +27,7 @@ var ratingOptions = {
     <h4>to roman</h4>
     <input type="text" readonly="readonly" class="text-center form-control roman-value">
 </div>
+
 <script src="../dist/js/jquery.roman-numbers.min.js"></script>
 <script>
     var options = {
@@ -50,6 +51,7 @@ var ratingOptions = {
     <h4>to numeric</h4>
     <input type="text" readonly="readonly" class="text-center form-control roman-value">
 </div>
+
 <script src="../dist/js/jquery.roman-numbers.min.js"></script>
 <script>
     var options = {
